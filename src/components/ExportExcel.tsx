@@ -20,9 +20,9 @@ const ExcelExport = () => {
     const file = e.currentTarget["file"].files[0];
     const reader = new FileReader();
 
-    reader.onload = async (e) => {
+    reader.onload = async (event) => {
       try {
-        const json = JSON.parse(e.target?.result as string);
+        const json = JSON.parse(event.target?.result as string);
 
         const worksheet = XLSX.utils.json_to_sheet(json);
         const workbook = XLSX.utils.book_new();
