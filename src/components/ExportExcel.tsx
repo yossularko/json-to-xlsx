@@ -53,7 +53,7 @@ const ExcelExport = () => {
     <form
       ref={formRef}
       onSubmit={handleSubmit}
-      className="grid grid-cols-2 gap-6"
+      className="grid grid-cols-1 md:grid-cols-2 gap-6"
     >
       <div className="grid items-center gap-1.5">
         <Label htmlFor="filename">File Name</Label>
@@ -68,11 +68,11 @@ const ExcelExport = () => {
         />
       </div>
       <div className="grid items-center gap-1.5">
-        <Label htmlFor="file">Picture</Label>
-        <Input id="file" name="file" type="file" required />
+        <Label htmlFor="file">Upload Json File</Label>
+        <Input id="file" name="file" type="file" required accept=".json" />
       </div>
       <Button type="submit" disabled={isLoading}>
-        Export to Excel
+        {isLoading ? "Exporting..." : "Export to Excel"}
       </Button>
     </form>
   );
